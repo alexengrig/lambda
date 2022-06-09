@@ -1,46 +1,10 @@
-# TODO
+# lambda
 
-Replace with values:
+[![Maven Central](https://img.shields.io/maven-central/v/dev.alexengrig/lambda.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22dev.alexengrig%22%20AND%20a:%22lambda%22)
+[![Javadocs](https://www.javadoc.io/badge/dev.alexengrig/lambda.svg)](https://www.javadoc.io/doc/dev.alexengrig/lambda)
+[![GitHub](https://img.shields.io/github/license/alexengrig/lambda?style=flat&&color=informational)](LICENSE)
 
-- `PROJECT_NAME`
-- `PROJECT_VERSION`
-- `PROJECT_DESCRIPTION`
-
-Add `~/.m2/settings.xml` and replace `OSS_USERNAME`/`OSS_PASSWORD` with values:
-
-```xml
-
-<settings
-        xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <localRepository/>
-    <interactiveMode/>
-    <offline/>
-    <pluginGroups/>
-    <servers>
-        <server>
-            <id>ossrh</id>
-            <username>OSS_USERNAME</username>
-            <password>OSS_PASSWORD</password>
-        </server>
-    </servers>
-    <mirrors/>
-    <proxies/>
-    <profiles/>
-    <activeProfiles/>
-</settings>
-```
-
-Remove [TODO](#TODO) block.
-
-# PROJECT_NAME
-
-[![Maven Central](https://img.shields.io/maven-central/v/dev.alexengrig/PROJECT_NAME.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22dev.alexengrig%22%20AND%20a:%22PROJECT_NAME%22)
-[![Javadocs](https://www.javadoc.io/badge/dev.alexengrig/PROJECT_NAME.svg)](https://www.javadoc.io/doc/dev.alexengrig/PROJECT_NAME)
-[![GitHub](https://img.shields.io/github/license/alexengrig/PROJECT_NAME?style=flat&&color=informational)](LICENSE)
-
-PROJECT_DESCRIPTION.
+Add-ons for [java.util.function](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html).
 
 ## Install
 
@@ -48,7 +12,7 @@ PROJECT_DESCRIPTION.
 
 ```groovy
 
-implementation 'dev.alexengrig:PROJECT_NAME:PROJECT_VERSION'
+implementation 'dev.alexengrig:lambda:1.0-SNAPSHOT'
 ```
 
 ### Maven
@@ -57,8 +21,8 @@ implementation 'dev.alexengrig:PROJECT_NAME:PROJECT_VERSION'
 
 <dependency>
     <groupId>dev.alexengrig</groupId>
-    <artifactId>PROJECT_NAME</artifactId>
-    <version>PROJECT_VERSION</version>
+    <artifactId>lambda</artifactId>
+    <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
 
