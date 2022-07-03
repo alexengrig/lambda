@@ -6,6 +6,38 @@
 
 Add-ons for [java.util.function](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html).
 
+[TerConsumer](src/main/java/dev/alexengrig/util/lambda/TerConsumer.java):
+
+```java
+TerConsumer<byte[], Integer, Integer> fn = (byte[] bytes, Integer offset, Integer length) -> new String(bytes, offset, length);
+TerConsumer<byte[], Integer, Integer> ref = String::new;
+```
+
+[TerFunction](src/main/java/dev/alexengrig/util/lambda/TerFunction.java):
+
+```java
+TerFunction<String, Integer, Integer, String> fn = (String s, Integer b, Integer e) -> s.substring(b, e);
+TerFunction<String, Integer, Integer, String> ref = String::substring;
+```
+
+[TerPredicate](src/main/java/dev/alexengrig/util/lambda/TerPredicate.java):
+
+```java
+TerPredicate<Long, Long, Long> predicate3 = (f, s, t) -> f > 0 ^ s > 0 ^ t > 0;
+```
+
+[Currying](src/main/java/dev/alexengrig/util/lambda/Currying.java):
+
+```java
+String value = Stream.of("1", "22", "333")
+          // s -> s.substring(0, 1)
+        .map(Currying.right3(String::substring, 0, 1))
+        .collect(Collectors.joining());
+assert "123".equals(value);
+```
+
+See full code in [demo](demo).
+
 ## Install
 
 ### Gradle
