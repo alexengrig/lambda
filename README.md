@@ -44,7 +44,7 @@ See full code in [demo](demo).
 
 ```groovy
 
-implementation 'dev.alexengrig:lambda:1.0-SNAPSHOT'
+implementation 'dev.alexengrig:lambda:1.0'
 ```
 
 ### Maven
@@ -54,7 +54,7 @@ implementation 'dev.alexengrig:lambda:1.0-SNAPSHOT'
 <dependency>
     <groupId>dev.alexengrig</groupId>
     <artifactId>lambda</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 </dependency>
 ```
 
