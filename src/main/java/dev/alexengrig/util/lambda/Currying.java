@@ -3,8 +3,10 @@ package dev.alexengrig.util.lambda;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
+import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
@@ -44,7 +46,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * () ->  result
+     * () -> result
      * }</pre>
      *
      * @param function the function for currying
@@ -117,7 +119,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * () ->  result
+     * () -> result
      * }</pre>
      *
      * @param biFunction the function for currying
@@ -220,7 +222,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * () ->  result
+     * () -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -272,7 +274,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (second) ->  result
+     * (second) -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -299,7 +301,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (third) -> (first) ->  result
+     * (third) -> (first) -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -374,7 +376,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (third) -> (second) -> (first) ->  result
+     * (third) -> (second) -> (first) -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -399,7 +401,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (second) -> (first) ->  result
+     * (second) -> (first) -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -425,7 +427,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (first) ->  result
+     * (first) -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -452,7 +454,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (second, third) ->  result
+     * (second, third) -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -478,7 +480,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (first, third) ->  result
+     * (first, third) -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -504,7 +506,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (first, second) ->  result
+     * (first, second) -> result
      * }</pre>
      *
      * @param terFunction the function for currying
@@ -754,7 +756,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (second) ->  {}
+     * (second) -> {}
      * }</pre>
      *
      * @param terConsumer the consumer for currying
@@ -780,7 +782,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (third) -> (first) ->  {}
+     * (third) -> (first) -> {}
      * }</pre>
      *
      * @param terConsumer the consumer for currying
@@ -852,7 +854,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (third) -> (second) -> (first) ->  {}
+     * (third) -> (second) -> (first) -> {}
      * }</pre>
      *
      * @param terConsumer the consumer for currying
@@ -876,7 +878,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (second) -> (first) ->  {}
+     * (second) -> (first) -> {}
      * }</pre>
      *
      * @param terConsumer the consumer for currying
@@ -901,7 +903,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (first) ->  {}
+     * (first) -> {}
      * }</pre>
      *
      * @param terConsumer the consumer for currying
@@ -927,7 +929,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (second, third) ->  {}
+     * (second, third) -> {}
      * }</pre>
      *
      * @param terConsumer the consumer for currying
@@ -952,7 +954,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (first, third) ->  {}
+     * (first, third) -> {}
      * }</pre>
      *
      * @param terConsumer the consumer for currying
@@ -977,7 +979,7 @@ public final class Currying {
      * }</pre>
      * to:
      * <pre>{@code
-     * (first, second) ->  {}
+     * (first, second) -> {}
      * }</pre>
      *
      * @param terConsumer the consumer for currying
