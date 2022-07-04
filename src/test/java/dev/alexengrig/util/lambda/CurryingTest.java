@@ -186,4 +186,166 @@ class CurryingTest {
 
     }
 
+    @Nested
+    class Consumers {
+
+        String store;
+
+        void store(String first) {
+            store = first;
+        }
+
+        void store2(String first, String second) {
+            store = first + second;
+        }
+
+        void store3(String first, String second, String third) {
+            store = first + second + third;
+        }
+
+        @Test
+        void testLeft2() {
+            var lambda = Currying.left2(this::store2);
+            var lambda1 = lambda.apply(ONE);
+            lambda1.accept(TWO);
+            Assertions.assertEquals("12", store);
+        }
+
+        @Test
+        void testLeft2WithArg() {
+            var lambda = Currying.left2(this::store2, ONE);
+            lambda.accept(TWO);
+            Assertions.assertEquals("12", store);
+        }
+
+        @Test
+        void testLeft3() {
+            var lambda = Currying.left3(this::store3);
+            var lambda1 = lambda.apply(ONE);
+            var lambda2 = lambda1.apply(TWO);
+            lambda2.accept(THREE);
+            Assertions.assertEquals("123", store);
+        }
+
+        @Test
+        void testLeft3WithArg() {
+            var lambda = Currying.left3(this::store3, ONE);
+            var lambda1 = lambda.apply(TWO);
+            lambda1.accept(THREE);
+            Assertions.assertEquals("123", store);
+        }
+
+        @Test
+        void testLeft3WithArgs() {
+            var lambda = Currying.left3(this::store3, ONE, TWO);
+            lambda.accept(THREE);
+            Assertions.assertEquals("123", store);
+        }
+
+        @Test
+        void testLeftMiddle3() {
+            var lambda = Currying.leftMiddle3(this::store3, ONE);
+            var lambda1 = lambda.apply(TWO);
+            lambda1.accept(THREE);
+            Assertions.assertEquals("213", store);
+        }
+
+        @Test
+        void testMiddle3() {
+            var lambda = Currying.middle3(this::store3, ONE, TWO);
+            lambda.accept(THREE);
+            Assertions.assertEquals("132", store);
+        }
+
+        @Test
+        void testRightMiddle3() {
+            var lambda = Currying.rightMiddle3(this::store3, ONE);
+            var lambda1 = lambda.apply(TWO);
+            lambda1.accept(THREE);
+            Assertions.assertEquals("312", store);
+        }
+
+        @Test
+        void testRight2() {
+            var lambda = Currying.right2(this::store2);
+            var lambda1 = lambda.apply(ONE);
+            lambda1.accept(TWO);
+            Assertions.assertEquals("21", store);
+        }
+
+        @Test
+        void testRight2WithArg() {
+            var lambda = Currying.right2(this::store2, ONE);
+            lambda.accept(TWO);
+            Assertions.assertEquals("21", store);
+        }
+
+        @Test
+        void testRight3() {
+            var lambda = Currying.right3(this::store3);
+            var lambda1 = lambda.apply(ONE);
+            var lambda2 = lambda1.apply(TWO);
+            lambda2.accept(THREE);
+            Assertions.assertEquals("321", store);
+        }
+
+        @Test
+        void testRight3WithArg() {
+            var lambda = Currying.right3(this::store3, ONE);
+            var lambda1 = lambda.apply(TWO);
+            lambda1.accept(THREE);
+            Assertions.assertEquals("321", store);
+        }
+
+        @Test
+        void testRight3WithArgs() {
+            var lambda = Currying.right3(this::store3, ONE, TWO);
+            lambda.accept(THREE);
+            Assertions.assertEquals("312", store);
+        }
+
+        @Test
+        void testBiLeft3() {
+            var lambda = Currying.biLeft3(this::store3, ONE);
+            lambda.accept(TWO, THREE);
+            Assertions.assertEquals("123", store);
+        }
+
+        @Test
+        void testBiMiddle3() {
+            var lambda = Currying.biMiddle3(this::store3, ONE);
+            lambda.accept(TWO, THREE);
+            Assertions.assertEquals("213", store);
+        }
+
+        @Test
+        void testBiRight3() {
+            var lambda = Currying.biRight3(this::store3, ONE);
+            lambda.accept(TWO, THREE);
+            Assertions.assertEquals("231", store);
+        }
+
+        @Test
+        void testAll() {
+            var lambda = Currying.all(this::store, ONE);
+            lambda.run();
+            Assertions.assertEquals("1", store);
+        }
+
+        @Test
+        void testAll2() {
+            var lambda = Currying.all2(this::store2, ONE, TWO);
+            lambda.run();
+            Assertions.assertEquals("12", store);
+        }
+
+        @Test
+        void testAll3() {
+            var lambda = Currying.all3(this::store3, ONE, TWO, THREE);
+            lambda.run();
+            Assertions.assertEquals("123", store);
+        }
+
+    }
+
 }
