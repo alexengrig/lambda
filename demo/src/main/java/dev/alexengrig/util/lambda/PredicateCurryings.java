@@ -19,12 +19,12 @@ package dev.alexengrig.util.lambda;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class Curryings {
+public class PredicateCurryings {
     static {
-        String value = Stream.of("1", "22", "333")
-                  // s -> s.substring(0, 1)
-                .map(Currying.right3(String::substring, 0, 1))
+        String value = Stream.of("-Task", "-Test", "-Text")
+                     // s -> s.startsWith("Te", 1)
+                .filter(PredicateCurrying.right3(String::startsWith, "Te", 1))
                 .collect(Collectors.joining());
-        assert "123".equals(value);
+        assert "-Test-Text".equals(value);
     }
 }
