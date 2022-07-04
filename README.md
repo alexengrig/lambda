@@ -65,7 +65,7 @@ See full code in [demo](demo).
 
 ```groovy
 
-implementation 'dev.alexengrig:lambda:1.0'
+implementation 'dev.alexengrig:lambda:2.0'
 ```
 
 ### Maven
@@ -75,7 +75,7 @@ implementation 'dev.alexengrig:lambda:1.0'
 <dependency>
     <groupId>dev.alexengrig</groupId>
     <artifactId>lambda</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
 </dependency>
 ```
 
