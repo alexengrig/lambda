@@ -29,12 +29,12 @@ TerPredicate<Long, Long, Long> predicate3 = (f, s, t) -> f > 0 ^ s > 0 ^ t > 0;
 [ConsumerCurrying](src/main/java/dev/alexengrig/util/lambda/ConsumerCurrying.java):
 
 ```java
-        List<String> list = new LinkedList<>();
-        Stream.of("1", "2", "3")
-                      // s -> list.add(0, s)
-                .forEach(ConsumerCurrying.left2(list::add, 0));
-        String value = String.join("", list);
-        assert "321".equals(value);
+List<String> list = new LinkedList<>();
+Stream.of("1", "2", "3")
+              // s -> list.add(0, s)
+        .forEach(ConsumerCurrying.left2(list::add, 0));
+String value = String.join("", list);
+assert "321".equals(value);
 ```
 
 [FunctionCurrying](src/main/java/dev/alexengrig/util/lambda/FunctionCurrying.java):
@@ -50,11 +50,11 @@ assert "123".equals(value);
 [PredicateCurrying](src/main/java/dev/alexengrig/util/lambda/PredicateCurrying.java):
 
 ```java
-        String value = Stream.of("-Task", "-Test", "-Text")
-                     // s -> s.startsWith("Te", 1)
-                .filter(PredicateCurrying.right3(String::startsWith, "Te", 1))
-                .collect(Collectors.joining());
-        assert "-Test-Text".equals(value);
+String value = Stream.of("-Task", "-Test", "-Text")
+             // s -> s.startsWith("Te", 1)
+        .filter(PredicateCurrying.right3(String::startsWith, "Te", 1))
+        .collect(Collectors.joining());
+assert "-Test-Text".equals(value);
 ```
 
 See full code in [demo](demo).
