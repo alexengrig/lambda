@@ -26,14 +26,35 @@ TerFunction<String, Integer, Integer, String> ref = String::substring;
 TerPredicate<Long, Long, Long> predicate3 = (f, s, t) -> f > 0 ^ s > 0 ^ t > 0;
 ```
 
-[Currying](src/main/java/dev/alexengrig/util/lambda/Currying.java):
+[ConsumerCurrying](src/main/java/dev/alexengrig/util/lambda/ConsumerCurrying.java):
+
+```java
+        List<String> list = new LinkedList<>();
+        Stream.of("1", "2", "3")
+                      // s -> list.add(0, s)
+                .forEach(ConsumerCurrying.left2(list::add, 0));
+        String value = String.join("", list);
+        assert "321".equals(value);
+```
+
+[FunctionCurrying](src/main/java/dev/alexengrig/util/lambda/FunctionCurrying.java):
 
 ```java
 String value = Stream.of("1", "22", "333")
           // s -> s.substring(0, 1)
-        .map(Currying.right3(String::substring, 0, 1))
+        .map(FunctionCurrying.right3(String::substring, 0, 1))
         .collect(Collectors.joining());
 assert "123".equals(value);
+```
+
+[PredicateCurrying](src/main/java/dev/alexengrig/util/lambda/PredicateCurrying.java):
+
+```java
+        String value = Stream.of("-Task", "-Test", "-Text")
+                     // s -> s.startsWith("Te", 1)
+                .filter(PredicateCurrying.right3(String::startsWith, "Te", 1))
+                .collect(Collectors.joining());
+        assert "-Test-Text".equals(value);
 ```
 
 See full code in [demo](demo).
