@@ -17,7 +17,8 @@
 /**
  * Add-ons for {@link java.util.function}.
  *
- * @version 1.0
+ * @version 2.0
  * @author Grig Alex
+ * @since 1.0
  */
 package dev.alexengrig.util.lambda;
