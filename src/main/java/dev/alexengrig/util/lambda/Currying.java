@@ -127,6 +127,7 @@ public final class Currying {
      * @param first      the value of the first argument to {@code biFunction}
      * @param second     the value of the second argument to {@code biFunction}
      * @param <F>        the type of the first argument to {@code biFunction}
+     * @param <S>        the type of the second argument to {@code biFunction}
      * @param <R>        the type of the result of {@code biFunction}
      * @return currying of {@code biFunction}
      * @throws NullPointerException if {@code biFunction} is null
@@ -231,6 +232,8 @@ public final class Currying {
      * @param second      the value of the second argument to {@code terFunction}
      * @param third       the value of the third argument to {@code terFunction}
      * @param <F>         the type of the first argument to {@code terFunction}
+     * @param <S>         the type of the second argument to {@code terFunction}
+     * @param <T>         the type of the third argument to {@code terFunction}
      * @param <R>         the type of the result of {@code terFunction}
      * @return currying of {@code terFunction}
      * @throws NullPointerException if {@code terFunction} is null
